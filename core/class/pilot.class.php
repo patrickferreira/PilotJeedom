@@ -20,24 +20,24 @@
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class pilotCmd extends cmd {
-	    /*     * *************************Attributs****************************** */
+      /*     * *************************Attributs****************************** */
 
 
-	    /*     * ***********************Methode static*************************** */
+      /*     * ***********************Methode static*************************** */
 
 
-	    /*     * *********************Methode d'instance************************* */
+      /*     * *********************Methode d'instance************************* */
 
-	    /*
-	     *      * Non obligatoire permet de demander de ne pas supprimer les commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
-	     *            public function dontRemoveCmd() {
-	     *                  return true;
-	     *                        }
-	     *                             */
+      /*
+       *      * Non obligatoire permet de demander de ne pas supprimer les commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
+       *            public function dontRemoveCmd() {
+       *                  return true;
+       *                        }
+       *                             */
 
-	    public function execute($_options = array()) {
-		    //message::add('pilot', 'woot');
-		    //log::add('pilot', 'info', 'woot -> ' . $this->getLogicalId() . '<>' . $this->getType());
+      public function execute($_options = array()) {
+        //message::add('pilot', 'woot');
+        //log::add('pilot', 'info', 'woot -> ' . $this->getLogicalId() . '<>' . $this->getType());
 
         $eqLogic = $this->getEqLogic();
         $key = $eqLogic->getConfiguration('apikey');
@@ -47,8 +47,8 @@ class pilotCmd extends cmd {
 
         }
 
-		    //return;
-	    }
+        //return;
+      }
 }
 
 class pilot extends eqLogic {
@@ -100,7 +100,7 @@ class pilot extends eqLogic {
         $pilotCmd->setLogicalId('notification');
         $pilotCmd->setSubType('message');
         $pilotCmd->setDisplay('generic_type', 'GENERIC_ACTION');
-	      $pilotCmd->setEqLogic_id($this->getId());
+        $pilotCmd->setEqLogic_id($this->getId());
         
         $pilotCmd->save();
         $this->save();
@@ -197,9 +197,13 @@ class pilot extends eqLogic {
         'externalUrl' => $externalUrl
       );
 
+      $servername = config::byKey('name', 'core');
+      log::add('pilot', 'info', 'url re-> ' . $servername );
+
 
 
       if (is_object($user)) {
+        $params['servername'] = $servername;
         $params['username'] = $user->getLogin();
         $params['hash'] = $user->getHash();
       }
