@@ -46,8 +46,17 @@ class pilotCmd extends cmd {
             pilot::sendNotification($key, $_options['title'], $_options['message']);
 
         }
+        if ( $this->getType() == 'action' && $this->getLogicalId() == 'turnon' ) {
+            $infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
+            $result = jeedom::evaluateExpression('1');
+            $infoCmd->event($result);
+        }
+        if ( $this->getType() == 'action' && $this->getLogicalId() == 'turnoff' ) {
+            $infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
+            $result = jeedom::evaluateExpression('0');
+            $infoCmd->event($result);
+          }
 
-        //return;
       }
 }
 
@@ -101,8 +110,40 @@ class pilot extends eqLogic {
         $pilotCmd->setSubType('message');
         $pilotCmd->setDisplay('generic_type', 'GENERIC_ACTION');
         $pilotCmd->setEqLogic_id($this->getId());
-        
+
+        $pilotCmd2 = new pilotCmd();
+        $pilotCmd2->setName('State');
+        $pilotCmd2->setType('info');
+        $pilotCmd2->setLogicalId('state');
+        $pilotCmd2->setSubType('binary');
+        $pilotCmd2->setDisplay('generic_type', 'ENERGY_STATE');
+        $pilotCmd2->setEqLogic_id($this->getId());
+
         $pilotCmd->save();
+        $pilotCmd2->save();
+
+        $pilotCmd3 = new pilotCmd();
+        $pilotCmd3->setName('Turn Off');
+        $pilotCmd3->setValue('');
+        $pilotCmd3->setType('action');
+        $pilotCmd3->setLogicalId('turnoff');
+        $pilotCmd3->setSubType('other');
+        $pilotCmd3->setConfiguration('infoId', $pilotCmd2->getId() );
+        $pilotCmd3->setDisplay('generic_type', 'ENERGY_OFF');
+        $pilotCmd3->setEqLogic_id($this->getId());        
+
+        $pilotCmd4 = new pilotCmd();
+        $pilotCmd4->setName('Turn On');
+        $pilotCmd4->setValue('');
+        $pilotCmd4->setType('action');
+        $pilotCmd4->setLogicalId('turnon');
+        $pilotCmd4->setSubType('other');
+        $pilotCmd4->setConfiguration('infoId', $pilotCmd2->getId() );
+        $pilotCmd4->setDisplay('generic_type', 'ENERGY_ON');
+        $pilotCmd4->setEqLogic_id($this->getId());
+        
+        $pilotCmd3->save();
+        $pilotCmd4->save();
         $this->save();
 
     }
@@ -218,5 +259,3 @@ class pilot extends eqLogic {
 
   }
 }
-
-
