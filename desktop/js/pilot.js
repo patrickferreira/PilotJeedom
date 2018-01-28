@@ -36,10 +36,10 @@ function addCmdToTable(_cmd) {
     tr += '<span class="type" type="' + init(_cmd.type) + '">' + jeedom.cmd.availableType() + '</span>';
     tr += '<span class="subType" subType="' + init(_cmd.subType) + '"></span>';
     tr += '</td>';
-	tr += '<td>';
-	tr += '<span><input type="checkbox" class="cmdAttr " data-l1key="isVisible" checked/> {{Afficher}}<br/></span>';
-	tr += '<span><input type="checkbox" class="cmdAttr " data-l1key="isHistorized" /> {{Historiser}}<br/></span>';	
-	tr += '</td>';	
+    tr += '<td>';
+    tr += '<span><input type="checkbox" class="cmdAttr " data-l1key="isVisible" checked/> {{Afficher}}<br/></span>';
+    tr += '<span><input type="checkbox" class="cmdAttr " data-l1key="isHistorized" /> {{Historiser}}<br/></span>';  
+    tr += '</td>';  
     tr += '<td>';
     if (is_numeric(_cmd.id)) {
         tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
@@ -74,15 +74,33 @@ function printEqLogic(_eqLogic){
             $('#div_alert').showAlert({message: data.result, level: 'danger'});
             return;
         }
-    if (data.result == 'internalError') {
-        $('.qrCodeImg').empty().append('{{Erreur Pas d\'adresse interne (voir configuration de votre Jeedom !)}}');
-    }else if(data.result == 'externalError'){
-        $('.qrCodeImg').empty().append('{{Erreur Pas d\'adresse externe (voir configuration de votre Jeedom !)}}');
-    }else if(data.result == 'UserError'){
-        $('.qrCodeImg').empty().append('{{Erreur Pas d\'utilisateur selectionné}}');
-    }else{
-        $('.qrCodeImg').empty().append('<img src='+data.result+' />');
-    }
+
+
+    
+        if(data.result['error']) {
+            if(data.result['error'] == 'noUser') {
+                $('.warningMessages').append('{{Merci de bien vouloir sélectionner un utilisateur.}}');
+            }
+            if(data.result['error'] == 'noUrlInterne') {
+                $('.warningMessages').append('{{Merci de bien vouloir définir une URL interne pour votre serveur Jeedom, dans la configuration de votre serveur.}}');
+            }
+            else {
+                $('.warningMessages').append('{{Erreur interne. Essayez de réinstaller ce plugin.}}');
+            }
+        }
+
+        if(data.result['warning']) {
+            if(data.result['warning'] == 'noUrlExterne') {
+                $('.warningMessages').append('{{Avertissement : aucune URL externe n\'a été définie pour votre serveur. Pilot ne pourra donc pas s\'y connecter de l\'extérieur. }}');
+            }
+        }
+        if(data.result['result']) {
+            $('.qrCodeImg').empty().append('<img src='+data.result['result']+' />');
+        }
+
+        
+        
+        
     }
 });
 }
