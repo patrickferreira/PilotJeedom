@@ -196,23 +196,25 @@ class pilot extends eqLogic {
       $internalUrl = network::getNetworkAccess('internal');
       $externalUrl = network::getNetworkAccess('external');
       $userId = $this->getConfiguration('user');
+      $key = $this->getConfiguration('apikey');
       $user = user::byId($this->getConfiguration('user'));
 
       if ( $user == '') {
         $errorArray = array( 'error' => 'noUser' );
         return $errorArray;
       }
-      else if ( $internalUrl == null || $internalUrl == 'http://80' || $internalUrl == 'https://:443' ) {
+      else if ( $internalUrl == null || $internalUrl == 'http://:80' || $internalUrl == 'https://:443' ) {
         $errorArray = array( 'error' => 'noUrlInterne' );
         return $errorArray;
       }
 
       $warning = '';
-      if ( $externalUrl == null || $externalUrl == 'http://80' || $externalUrl == 'https://:443' ) {
+      if ( $externalUrl == null || $externalUrl == 'http://:80' || $externalUrl == 'https://:443' ) {
         $warning = 'noUrlExterne';
       }
-      
-      $key = $this->getConfiguration('apikey');
+      if($key == null) {
+        $warning = 'noApiKey';
+      }
 
       $params = array(
         'apikey' => $key,

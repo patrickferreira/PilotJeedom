@@ -76,6 +76,8 @@ function printEqLogic(_eqLogic){
         }
 
 
+        $('.warningMessages').empty();
+        $('.qrCodeImg').empty();
     
         if(data.result['error']) {
             if(data.result['error'] == 'noUser') {
@@ -84,19 +86,24 @@ function printEqLogic(_eqLogic){
             if(data.result['error'] == 'noUrlInterne') {
                 $('.warningMessages').append('{{Merci de bien vouloir définir une URL interne pour votre serveur Jeedom, dans la configuration de votre serveur.}}');
             }
-            else {
-                $('.warningMessages').append('{{Erreur interne. Essayez de réinstaller ce plugin.}}');
+        }
+        else {
+
+            if(data.result['warning']) {
+                if(data.result['warning'] == 'noUrlExterne') {
+                    $('.warningMessages').append('{{Avertissement : aucune URL externe n\'a été définie pour votre serveur. Pilot ne pourra donc pas s\'y connecter de l\'extérieur. }}');
+                }
+                if(data.result['warning'] == 'noApiKey') {
+                    $('.warningMessages').append('{{Avertissement : aucune clé API définie. Définir une clé API vous permet de recevoir les notifications PUSH sur votre appareil. }}');
+                }
             }
+            if(data.result['result']) {
+                $('.qrCodeImg').empty().append('<img src='+data.result['result']+' />');
+            }
+
         }
 
-        if(data.result['warning']) {
-            if(data.result['warning'] == 'noUrlExterne') {
-                $('.warningMessages').append('{{Avertissement : aucune URL externe n\'a été définie pour votre serveur. Pilot ne pourra donc pas s\'y connecter de l\'extérieur. }}');
-            }
-        }
-        if(data.result['result']) {
-            $('.qrCodeImg').empty().append('<img src='+data.result['result']+' />');
-        }
+        
 
         
         
