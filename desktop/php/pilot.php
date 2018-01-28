@@ -28,9 +28,9 @@ foreach ($eqLogics as $eqLogic) {
   <legend><i class="fa fa-cog"></i>  {{Gestion}}</legend>
   <div class="eqLogicThumbnailContainer">
       <div class="cursor eqLogicAction" data-action="add" style="text-align: center; background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
-        <i class="fa fa-plus-circle" style="font-size : 6em;color:#94ca02;"></i>
+        <i class="fa fa-plus-circle" style="font-size : 6em;color:#FF7C1A;"></i>
         <br>
-        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#94ca02">{{Ajouter}}</span>
+        <span style="font-size : 1.1em;position:relative; top : 23px;word-break: break-all;white-space: pre-wrap;word-wrap: break-word;color:#FF7C1A">{{Ajouter}}</span>
     </div>
       <div class="cursor eqLogicAction" data-action="gotoPluginConf" style="text-align: center; background-color : #ffffff; height : 120px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;">
       <i class="fa fa-wrench" style="font-size : 6em;color:#767676;"></i>
@@ -60,6 +60,7 @@ foreach ($eqLogics as $eqLogic) {
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
     <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-tachometer"></i> {{Paramètres}}</a></li>
+    <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Commandes}}</a></li>
   </ul>
   <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
     <div role="tabpanel" class="tab-pane active" id="eqlogictab">
@@ -72,7 +73,7 @@ foreach ($eqLogics as $eqLogic) {
 
 <form class="form-horizontal">
         <fieldset>
-          <legend><i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> Général<i class="fa fa-cogs eqLogicAction pull-right cursor" data-action="configure"></i></legend>
+          <legend><i class="fa fa-arrow-circle-left eqLogicAction cursor" data-action="returnToThumbnailDisplay"></i> Général</legend>
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">{{Nom du téléphone}}</label>
@@ -125,10 +126,6 @@ foreach (object::all() as $object) {
 </fieldset>
 </form>
 
-
-
-
-
   </div>
 
   <div class=col-xs-6>
@@ -149,15 +146,13 @@ foreach (object::all() as $object) {
 </div>
 
 
-
-
 </div>
       <div role="tabpanel" class="tab-pane" id="commandtab">
 <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
 <table id="table_cmd" class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>{{Nom}}</th><th>{{Type}}</th><th>{{Action}}</th>
+            <th>{{Nom}}</th><th>{{Type}}</th><th>{{Options}}</th><th>{{Actions}}</th>
         </tr>
     </thead>
     <tbody>
@@ -169,5 +164,5 @@ foreach (object::all() as $object) {
 </div>
 </div>
 
-<?php include_file('desktop', 'template', 'js', 'pilot');?>
+<?php include_file('desktop', 'pilot', 'js', 'pilot');?>
 <?php include_file('core', 'plugin.template', 'js');?>
