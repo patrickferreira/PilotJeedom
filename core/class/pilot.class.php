@@ -22,12 +22,12 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class pilot extends eqLogic {
     /*     * *************************Attributs****************************** */
-	
+  
 
 
     /*     * ***********************Methode static*************************** */
-	
-	public static $_widgetPossibility = array('custom' => true);
+  
+  public static $_widgetPossibility = array('custom' => true);
 
     /*
      * Fonction exécutée automatiquement toutes les minutes par Jeedom
@@ -81,39 +81,39 @@ class pilot extends eqLogic {
     }
 
     public function postUpdate() {
-		
+    
 
-		$pilotCmd = $this->getCmd(null, 'notification');
-		if (!is_object($pilotCmd)) {
-			$pilotCmd = new pilotCmd();
-		}		
+    $pilotCmd = $this->getCmd(null, 'notification');
+    if (!is_object($pilotCmd)) {
+      $pilotCmd = new pilotCmd();
+    }   
         $pilotCmd->setName('Notification');
         $pilotCmd->setType('action');
         $pilotCmd->setLogicalId('notification');
         $pilotCmd->setSubType('message');
         $pilotCmd->setDisplay('generic_type', 'GENERIC_ACTION');
         $pilotCmd->setEqLogic_id($this->getId());
-		$pilotCmd->save();		
-		
+    $pilotCmd->save();    
+    
 
-		$pilotCmd2 = $this->getCmd(null, 'state');
-		if (!is_object($pilotCmd2)) {
-			$pilotCmd2 = new pilotCmd();
-		}
-		$pilotCmd2->setName('State');		
+    $pilotCmd2 = $this->getCmd(null, 'state');
+    if (!is_object($pilotCmd2)) {
+      $pilotCmd2 = new pilotCmd();
+    }
+    $pilotCmd2->setName('State');   
         $pilotCmd2->setType('info');
         $pilotCmd2->setLogicalId('state');
         $pilotCmd2->setSubType('binary');
         $pilotCmd2->setDisplay('generic_type', 'ENERGY_STATE');
         $pilotCmd2->setEqLogic_id($this->getId());
         $pilotCmd2->save();
-		
+    
 
-		$pilotCmd3 = $this->getCmd(null, 'turnoff');
-		if (!is_object($pilotCmd3)) {
-			$pilotCmd3 = new pilotCmd();
-		}	
-		$pilotCmd3->setName('Turn Off');      
+    $pilotCmd3 = $this->getCmd(null, 'turnoff');
+    if (!is_object($pilotCmd3)) {
+      $pilotCmd3 = new pilotCmd();
+    } 
+    $pilotCmd3->setName('Turn Off');      
         $pilotCmd3->setValue('');
         $pilotCmd3->setType('action');
         $pilotCmd3->setLogicalId('turnoff');
@@ -121,15 +121,15 @@ class pilot extends eqLogic {
         $pilotCmd3->setConfiguration('infoId', $pilotCmd2->getId() );
         $pilotCmd3->setDisplay('generic_type', 'ENERGY_OFF');
         $pilotCmd3->setEqLogic_id($this->getId());
-		$pilotCmd3->save();        
+    $pilotCmd3->save();        
 
 
 
-		$pilotCmd4 = $this->getCmd(null, 'turnon');
-		if (!is_object($pilotCmd4)) {
-			$pilotCmd4 = new pilotCmd();
-		}	
-		$pilotCmd4->setName('Turn On');
+    $pilotCmd4 = $this->getCmd(null, 'turnon');
+    if (!is_object($pilotCmd4)) {
+      $pilotCmd4 = new pilotCmd();
+    } 
+    $pilotCmd4->setName('Turn On');
         $pilotCmd4->setName('Turn On');
         $pilotCmd4->setValue('');
         $pilotCmd4->setType('action');
@@ -139,7 +139,7 @@ class pilot extends eqLogic {
         $pilotCmd4->setDisplay('generic_type', 'ENERGY_ON');
         $pilotCmd4->setEqLogic_id($this->getId());
         $pilotCmd4->save();
-	
+  
     }
 
     public function preRemove() {
@@ -196,19 +196,25 @@ class pilot extends eqLogic {
       $internalUrl = network::getNetworkAccess('internal');
       $externalUrl = network::getNetworkAccess('external');
       $userId = $this->getConfiguration('user');
+      $key = $this->getConfiguration('apikey');
       $user = user::byId($this->getConfiguration('user'));
 
-      if ( $internalUrl == null ) {
-        return 'noUrlInterne';
+      if ( $user == '') {
+        $errorArray = array( 'error' => 'noUser' );
+        return $errorArray;
       }
-      else if ( $externalUrl == null ) {
-        return 'noUrlExterne';
+      else if ( $internalUrl == null || $internalUrl == 'http://:80' || $internalUrl == 'https://:443' ) {
+        $errorArray = array( 'error' => 'noUrlInterne' );
+        return $errorArray;
       }
-      else if ( $user == '') {
-        return 'noUser';
+
+      $warning = '';
+      if ( $externalUrl == null || $externalUrl == 'http://:80' || $externalUrl == 'https://:443' ) {
+        $warning = 'noUrlExterne';
       }
-      
-      $key = $this->getConfiguration('apikey');
+      if($key == null) {
+        $warning = 'noApiKey';
+      }
 
       $params = array(
         'apikey' => $key,
@@ -218,8 +224,6 @@ class pilot extends eqLogic {
 
       $servername = config::byKey('name', 'core');
       log::add('pilot', 'debug', 'url re-> ' . $servername );
-
-
 
       if (is_object($user)) {
         $params['servername'] = $servername;
@@ -231,8 +235,12 @@ class pilot extends eqLogic {
 
       $url = 'https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=pilot://';
       
+      $array = array(
+        'result' => $url . urlencode(json_encode($params)),
+        'warning' => $warning
+      );
       
-      return $url . urlencode(json_encode($params));
+      return $array;
       
 
   }
@@ -254,33 +262,33 @@ class pilotCmd extends cmd {
        *                        }
        *                             */
 
-	public function execute($_options = array()) {
+  public function execute($_options = array()) {
         //message::add('pilot', 'woot');
         //log::add('pilot', 'debug', 'woot -> ' . $this->getLogicalId() . '<>' . $this->getType());
 
-		$eqLogic = $this->getEqLogic();
-		$key = $eqLogic->getConfiguration('apikey');
-		
-		switch ($this->getType()) {
-			case "action" : 
-				switch ($this->getLogicalId()) {
-					case 'notification':
-						pilot::sendNotification($key, $_options['title'], $_options['message']);
-						break;
-					case  'turnon':
-						$infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
-						$result = jeedom::evaluateExpression('1');
-						$infoCmd->event($result);						
-						break;
-					case  'turnoff':
-						$infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
-						$result = jeedom::evaluateExpression('0');
-						$infoCmd->event($result);						
-						break;	
-					default :
-						log::add('pilot', 'error', 'Impossible de lancer la commande');					
-				}
-		}
+    $eqLogic = $this->getEqLogic();
+    $key = $eqLogic->getConfiguration('apikey');
+    
+    switch ($this->getType()) {
+      case "action" : 
+        switch ($this->getLogicalId()) {
+          case 'notification':
+            pilot::sendNotification($key, $_options['title'], $_options['message']);
+            break;
+          case  'turnon':
+            $infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
+            $result = jeedom::evaluateExpression('1');
+            $infoCmd->event($result);           
+            break;
+          case  'turnoff':
+            $infoCmd = pilotCmd::byId($this->getConfiguration('infoId'));
+            $result = jeedom::evaluateExpression('0');
+            $infoCmd->event($result);           
+            break;  
+          default :
+            log::add('pilot', 'error', 'Impossible de lancer la commande');         
+        }
+    }
 
-	}
+  }
 }
