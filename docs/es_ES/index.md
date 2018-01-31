@@ -9,18 +9,17 @@ Prenez le contrôle de votre maison domotique !
 Pilot vous permet de prendre le contrôle de votre installation domotique : allumer la lumière, ouvrir les volets, fermer la porte, envoyer un message lorsque vous quittez le domicile, etc. Toutes ces actions, et bien plus encore, directement sur votre iPhone.
 
 À la maison, où en déplacement, Pilot vous permet de :
-
-- Contrôler votre maison domotique, grâce à une interface claire et intuitive
-- Vous connecter à votre serveur Jeedom, avec la possibilité de se connecter simultanément à plusieurs serveurs
-- Voir le statut et contrôler vos objets connectés
-- Voir tous vos favoris en un seul endroit, et même depuis le centre de notifications de l'iPhone
-- Déclencher un scénario depuis le centre de notifications
-- Déclencher une action en fonction de la localisation de votre iPhone. Définissez plusieurs emplacements et déclenchez des actions en fonction de ces emplacements !
-- Visualiser vos caméras
-- Visualiser l'historique de certains équipements (bientôt)
-- Filtrer vos équipements par catégorie, et par objet
-- Envoyer des notifications PUSH
-- Utiliser votre watch pour contrôler vos équipements
+* Contrôler votre maison domotique, grâce à une interface claire et intuitive
+* Vous connecter à votre serveur Jeedom, avec la possibilité de se connecter simultanément à plusieurs serveurs
+* Voir le statut et contrôler vos objets connectés
+* Voir tous vos favoris en un seul endroit, et même depuis le centre de notifications de l'iPhone
+* Déclencher un scénario depuis le centre de notifications
+* Déclencher une action en fonction de la localisation de votre iPhone. Définissez plusieurs emplacements et déclenchez des actions en fonction de ces emplacements !
+* Visualiser vos caméras
+* Visualiser l'historique de certains équipements (bientôt)
+* Filtrer vos équipements par catégorie, et par objet
+* Envoyer des notifications PUSH
+* Utiliser votre watch pour contrôler vos équipements
 
 Pilot a été conçu spécifiquement pour utiliser le service de localisation de votre iPhone. Vous pouvez localiser votre iPhone, et déclencher une action en fonction (nécessite un achat in-app).
 
@@ -219,7 +218,7 @@ Si ce n'est pas déjà fait, [téléchargez l'application sur votre iPhone ou iP
 
 ![Affichage de votre serveur](../images/iPhone 8 - 11.2 2018-01-30 23-50-28.png)
 
-## Fonctionnalités
+## Fonctionnalités 
 
 Pilot propose de nombreuses fonctionnalités à travers une interface simple et intuitive.
 
@@ -229,23 +228,23 @@ Pour contrôler un équipement, il suffit d'appuyer sur l'élément, afin d'affi
 
 En fonction de l'équipement, plusieurs commandes peuvent apparaitre :
 
-- Allumer
-- Éteindre
-- Baisser un volet
-- Ouvrir un volet
-- Stop
-- Niveau d'intensité
-- Poussoir
-- Etc.
+* Allumer
+* Éteindre
+* Baisser un volet
+* Ouvrir un volet
+* Stop
+* Niveau d'intensité
+* Poussoir
+* Etc.
 
 Il est également possible d'utiliser un swipe sur un équipement pour réaliser une action rapide :
 
-- Swipe de la gauche vers la droite :
-  - Allumer un équipement
-  - Fermer un volet
-- Swipe de la droite vers la gauche pour éteindre :
-  - Eteindre un équipement
-  - Ouvrir un volet
+* Swipe de la gauche vers la droite :
+  * Allumer un équipement
+  * Fermer un volet
+* Swipe de la droite vers la gauche pour éteindre :
+  * Eteindre un équipement
+  * Ouvrir un volet
 
 ### Création d'un favori
 
@@ -262,7 +261,7 @@ Un favori apparait automatiquement dans l'écran "Favoris" de Pilot.
 
 *L'utilisation des widgets nécessite l'obtention de Pilot Premium.*
 
-Pilot propose 2 widgets : **Mes favoris** et **Scénarios**
+Pilot propose 2 widgets : **Mes favoris**et**Scénarios**
 
 #### Petit conseil pour tous les utilisateurs
 
@@ -290,9 +289,9 @@ Pilot est disponible sur l'watch pour contrôler vos équipements depuis votr
 
 3 catégories disponibles :
 
-- Favoris
-- Scénarios
-- Tous vos équipements
+* Favoris
+* Scénarios
+* Tous vos équipements
 
 ![Présentation de l'app sur l'apple watch](../images/Apple-Watch-Series-3---38mm---4.2-2018-01-31-00-25-51.png)
 
@@ -336,7 +335,7 @@ Dans le cadre de ce tutoriel, nous allons utiliser l’équipement initialement 
 
 
 
-1. Une fois sélectionné, vous revenez à l’écran précédent, et il vous suffit alors d’indiquer l’adresse de votre domicile, soit automatiquement en appuyant sur le bouton « Me localiser », ou manuellement en entrant l’adresse dans le champ dédié.
+6. Une fois sélectionné, vous revenez à l’écran précédent, et il vous suffit alors d’indiquer l’adresse de votre domicile, soit automatiquement en appuyant sur le bouton « Me localiser », ou manuellement en entrant l’adresse dans le champ dédié.
 
 Et voilà ! Votre serveur Jeedom et votre application sont maintenant correctement paramétrés. Vous pouvez maintenant utiliser l’équipement Jeedom pour adapter vos scénarios et détecter lorsque le téléphone arrive, ou quitte le domicile !
 
@@ -344,7 +343,7 @@ Comme vous l’avez sans doute compris, l’interrupteur virtuel passe à « On 
 
 [Retrouvez le tutoriel complet ici](https://pilot.patrickferreira.com/tutoriel-jeedom-localisation-iphone/), vous pouvez y déposer vos commentaires si vous le souhaitez.
 
-### Notifications PUSH
+### Notifications PUSH 
 
 *Nécessite l'obtention de Pilot Premium.*
 

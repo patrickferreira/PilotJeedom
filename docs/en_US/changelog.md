@@ -4,10 +4,10 @@
 
 ### V1.0
 
-- Première version du plugin
+* Première version du plugin
 
 ## App iOS Pilot
 
 ### V2.3.0
 
-- Compatibilité avec Jeedom
+* Compatibilité avec Jeedom
