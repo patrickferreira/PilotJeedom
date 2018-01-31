@@ -1,9 +1,7 @@
-Plugin Pilot
-===
-
 Plugin officiel de l'application [Pilot sur iOS](https://pilot.patrickferreira.com). Ce plugin permet de paramétrer Pilot en un clic et de créer un équipement virtuel qui vous permettra, via l'application, d'envoyer des notifications et déclencher des événements basés sur la localisation de l'appareil.
 
-## Présentation de l'application
+Présentation de l'application
+=
 
 Prenez le contrôle de votre maison domotique !
 
@@ -26,7 +24,8 @@ Pilot a été conçu spécifiquement pour utiliser le service de localisation de
 
 L'utilisation continue du GPS en tâche de fond peut réduire considérablement la durée de vie de la batterie. 
 
-## Fonctionnalités
+Fonctionnalités
+=
 
 Pilot propose une version gratuite et un achat in-app "Pilot Premium".
 
@@ -51,13 +50,15 @@ Découvrez ci-dessous toutes les fonctionnalités proposées.
 | Affichage de publicités                  | Oui      | Non      |
 | Soutien pour les développements futurs   | Non      | Oui ! <3 |
 
-## Compatibilité avec Jeedom
+Compatibilité avec Jeedom
+=
 
 Pilot utilise les types génériques définis dans JEEDOM. Si un équipement n'est pas associé à un type générique, alors l'équipement sera  visible en lecture seule, mais il sera impossible de le contrôler.
 
 [Plus d'informations sur les types génériques.](https://www.jeedom.com/blog/3327-application-mobile-les-types-generiques/)
 
-### Tableau des compatibilités
+Tableau des compatibilités
+-
 
 #### Chauffage
 
@@ -173,7 +174,8 @@ Pilot utilise les types génériques définis dans JEEDOM. Si un équipement n'e
 | Zoom caméra vers l'arrière      | Action    | Non          |
 | Zoom caméra vers l'avant        | Action    | Non          |
 
-### Compatibilité avec les plugins Jeedom
+Compatibilité avec les plugins Jeedom
+-
 
 | Nom du plugin | Compatible ?                      |
 | ------------- | --------------------------------- |
@@ -186,7 +188,8 @@ Pilot utilise les types génériques définis dans JEEDOM. Si un équipement n'e
 
 N'hésitez pas à [proposer la prise en charge de vos plugins favoris](https://pilot.patrickferreira.com/contactez-moi/).
 
-## Configuration du plugin Pilot
+Configuration du plugin Pilot
+=
 
 Après téléchargement du plugin, vous devez commencer par l'activer.
 
@@ -208,7 +211,8 @@ Ensuite, vous devez **créer un équipement**. Pour cela :
 
    Une fois ces étapes réalisées, tout est OK pour effectuer le premier lancement de l'app sur iOS.
 
-## Premier lancement de l'app Pilot sur iOS
+Premier lancement de l'app Pilot sur iOS
+=
 
 Si ce n'est pas déjà fait, [téléchargez l'application sur votre iPhone ou iPad](https://itunes.apple.com/fr/app/pilot-home-automation-client/id902546368?l=fr&ls=1&mt=8). Puis :
 
@@ -219,11 +223,13 @@ Si ce n'est pas déjà fait, [téléchargez l'application sur votre iPhone ou iP
 
 ![Affichage de votre serveur](../images/iPhone 8 - 11.2 2018-01-30 23-50-28.png)
 
-## Fonctionnalités 
+Fonctionnalités 
+=
 
 Pilot propose de nombreuses fonctionnalités à travers une interface simple et intuitive.
 
-### Contrôle d'un équipement
+Contrôle d'un équipement
+-
 
 Pour contrôler un équipement, il suffit d'appuyer sur l'élément, afin d'afficher les contrôles complémentaires.
 
@@ -247,7 +253,8 @@ Il est également possible d'utiliser un swipe sur un équipement pour réaliser
   * Eteindre un équipement
   * Ouvrir un volet
 
-### Création d'un favori
+Création d'un favori
+-
 
 Pour créer un favori :
 
@@ -258,7 +265,8 @@ Un favori apparait automatiquement dans l'écran "Favoris" de Pilot.
 
 ![Création d'un favori](../images/iPhone 8 - 11.2 2018-01-31 00-01-35.png)
 
-### Utilisation des widgets
+Utilisation des widgets
+-
 
 *L'utilisation des widgets nécessite l'obtention de Pilot Premium.*
 
@@ -284,7 +292,8 @@ Le widget "Mes favoris" propose les mêmes contrôles que ceux disponibles dans 
 
 Le widget "Scénarios" permet de déclencher rapidement un scénario. Il suffit d'appuyer sur un scénario pour le déclencher.
 
-### Utilisation de l'watch
+Utilisation de l'watch
+-
 
 Pilot est disponible sur l'watch pour contrôler vos équipements depuis votre poignet.
 
@@ -296,7 +305,8 @@ Pilot est disponible sur l'watch pour contrôler vos équipements depuis votr
 
 ![Présentation de l'app sur l'apple watch](../images/Apple-Watch-Series-3---38mm---4.2-2018-01-31-00-25-51.png)
 
-### Ajout d'un deuxième serveur
+Ajout d'un deuxième serveur
+-
 
 *Nécessite l'obtention de Pilot Premium.*
 
@@ -307,13 +317,15 @@ Pour ajouter un deuxième serveur, ou un troisième, ou un quatrième, il vous s
 3. Sélectionner le type de serveur souhaité. *Vous pouvez paramétrer plusieurs types de serveurs sans aucun souci !*
 4. Suivre les instructions qui s'affichent et finaliser la création du serveur
 
-### Suppression d'un serveur
+Suppression d'un serveur
+-
 
 1. Aller sur l'écran "Paramètres > Paramètres du serveur"
 2. Swiper de la droite vers la gauche, sur le serveur que vous souhaitez supprimer
 3. Confirmer la suppression en appuyant sur "Supprimer"
 
-### Localisation
+Localisation
+-
 
 *Nécessite l'obtention de Pilot Premium.*
 
@@ -344,7 +356,8 @@ Comme vous l’avez sans doute compris, l’interrupteur virtuel passe à « On 
 
 [Retrouvez le tutoriel complet ici](https://pilot.patrickferreira.com/tutoriel-jeedom-localisation-iphone/), vous pouvez y déposer vos commentaires si vous le souhaitez.
 
-### Notifications PUSH 
+Notifications PUSH 
+-
 
 *Nécessite l'obtention de Pilot Premium.*
 
@@ -355,7 +368,8 @@ Pour activer les notifications :
 3. Cocher la case "Notifications"
 4. Et c'est tout ! Vous pouvez maintenant utiliser l'équipement créé dans Jeedom pour y envoyer des notifications.
 
-### Touch ID, Face ID et code
+Touch ID, Face ID et code
+-
 
 *Nécessite l'obtention de Pilot Premium.*
 
@@ -367,11 +381,13 @@ En activant cette fonctionnalité, vos données seront protégées et un code vo
 
 Les widgets seront également protégés, et il vous faudra déverrouiller votre iPhone avant de pouvoir consulter les équipements de votre domicile.
 
-## Questions fréquentes
+Questions fréquentes
+=
 
 https://pilot.patrickferreira.com/foire-aux-questions/
 
-## Tutoriels et liens utiles
+Tutoriels et liens utiles
+=
 
 [Tutoriel : localisation à l'aide de votre iPhone](https://pilot.patrickferreira.com/tutoriel-jeedom-localisation-iphone/)
 
@@ -381,7 +397,8 @@ Tutoriel : envoi de notifications PUSH (bientôt)
 
 [Support sur le topic dédié sur le forum de Jeedom](https://www.jeedom.com/forum/viewtopic.php?f=112&t=33592)
 
-## Contact
+Contact
+=
 
 [Formulaire de contact](https://pilot.patrickferreira.com/contactez-moi/)
 
