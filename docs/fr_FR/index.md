@@ -1,4 +1,5 @@
-# Plugin Pilot
+Plugin Pilot
+===
 
 Plugin officiel de l'application [Pilot sur iOS](https://pilot.patrickferreira.com). Ce plugin permet de paramétrer Pilot en un clic et de créer un équipement virtuel qui vous permettra, via l'application, d'envoyer des notifications et déclencher des événements basés sur la localisation de l'appareil.
 
