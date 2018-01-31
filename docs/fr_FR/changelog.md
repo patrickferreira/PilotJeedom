@@ -1,13 +1,15 @@
-# Historique des versions
+Plugin Pilot
+=
 
-## Plugin Pilot
-
-### V1.0
+V1.0
+-
 
 * Première version du plugin
 
-## App iOS Pilot
+App iOS Pilot
+=
 
-### V2.3.0
+V2.3.0
+-
 
 * Compatibilité avec Jeedom
