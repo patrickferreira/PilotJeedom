@@ -10,6 +10,6 @@
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
 	"version" : "1.0.1",
-	"changelog" : "https://pilot.patrickferreira.com",
-	"documentation" : "https://pilot.patrickferreira.com"
+	"changelog" : "https://patrickferreira.github.io/PilotJeedom/#language#/changelog",
+	"documentation" : "https://patrickferreira.github.io/PilotJeedom/#language#/"
 }
