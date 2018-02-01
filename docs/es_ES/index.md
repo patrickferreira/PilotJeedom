@@ -270,7 +270,7 @@ Utilisation des widgets
 
 *L'utilisation des widgets nécessite l'obtention de Pilot Premium.*
 
-Pilot propose 2 widgets : **Mes favoris** et **Scénarios**
+Pilot propose 2 widgets : **Mes favoris**et**Scénarios**
 
 #### Petit conseil pour tous les utilisateurs
 
