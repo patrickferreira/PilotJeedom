@@ -391,6 +391,8 @@ Tutoriels et liens utiles
 
 [Tutoriel : localisation à l'aide de votre iPhone](https://pilot.patrickferreira.com/tutoriel-jeedom-localisation-iphone/)
 
+[Tutoriel : créer un raccourci avec Siri](https://pilot.patrickferreira.com/utiliser-les-actions-siri-avec-domoticz-et-jeedom/)
+
 Tutoriel : envoi de notifications PUSH (bientôt)
 
 [Site officiel de l'application Pilot sur iOS](https://pilot.patrickferreira.com/client-domotique/)
